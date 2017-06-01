@@ -3,20 +3,22 @@ var router = express.Router();
 var request = require('request');
 var config = require('../config/config');
 
-console.log(config);
+// console.log(config);
 
 const apiBaseUrl = 'http://api.themoviedb.org/3';
 const nowPlayingUrl = apiBaseUrl + '/movie/now_playing?api_key='+config.apiKey;
 const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	request.get(nowPlayingUrl,(error, response, movieData)=>{
 		var movieData = JSON.parse(movieData);
 		// console.log(movieData);
-		res.render('index', { 
+		res.render('movie_list', { 
 			movieData: movieData.results,
-			imageBaseUrl: imageBaseUrl
+			imageBaseUrl: imageBaseUrl,
+			titleHeader: "Welcome to my movie app. These are now playing..."
 		});
 	});
 });
@@ -38,12 +40,33 @@ router.post('/search', (req,res)=>{
 	request.get(searchUrl,(error, response, movieData)=>{
 		// res.json(JSON.parse(movieData));
 		var movieData = JSON.parse(movieData);
-		res.render('search', { 
+		res.render('movie_list', { 
 			movieData: movieData.results,
+			imageBaseUrl: imageBaseUrl,
+			titleHeader: `You searched for ${termUserSearchedFor}. The results are...`
+		});
+	});
+});
+
+router.get('/movie/:id', (req, res)=>{
+	// The route has a :id in it. A : means WILD CARD. A wildcard is ANYTHING in that slot.
+	// All wildcards in routes are available in req.params
+	var thisMovieId = req.params.id;
+	// Build the URL per the API docs
+	var thisMovieUrl = `${apiBaseUrl}/movie/${thisMovieId}?api_key=${config.apiKey}`;
+	// Use the request module to make an HTTP get request
+	request.get(thisMovieUrl, (error, response, movieData)=>{
+		// Parse the response into JSON
+		var movieData = JSON.parse(movieData);
+		// First arg: the view file
+		// Second arg: obj to send the view fild
+		// res.json(movieData);
+		res.render('single_movie', {
+			movieData: movieData,
 			imageBaseUrl: imageBaseUrl
 		});
 	});
-
+	// res.send(req.params.id);
 });
 
 module.exports = router;
