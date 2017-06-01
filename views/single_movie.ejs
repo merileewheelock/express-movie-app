@@ -4,13 +4,14 @@
 	<title></title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Diplomata|Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
 
 </head>
 <body>
 
 	<div class="container">
-		<div class="row">
+		<div class="row header-section">
 			<div class="text-danger col-sm-12 text-center">
 				<h1><%= movieData.title %></h1>
 			</div>
@@ -18,17 +19,35 @@
 			<div class="col-sm-6 col-sm-offset-3">
 				<form id="search-form" class="form-inline" action="/search" method="post">
 					<input type="text" placeholder="Movie Title" name="searchString"/>
-					<button type="submit" class="btn btn-primary">Search</button>
+					<button type="submit" class="btn btn-default">Search</button>
 				</form>
 			</div>
+		</div>
 
+		<div class="row">
+			<div class="col-sm-12 movie-data">
+				<div class="col-sm-3 col-sm-offset-1 movie-poster">
+					<img src="<%= imageBaseUrl + movieData.poster_path %>" />
+				</div>
+				<div class="col-sm-6 col-sm-offset-1 movie-info">
+					<div class="sub-title">Overview: </div>
+					<div><%= movieData.overview %></div>
 
-			<div class="col-sm-12 movies">
-				<% for(let i = 0; i < movieData.length; i++) { %>
-					<div class="col-sm-3">
-						<a href="/movie/<%= movieData[i].id %>"><img src="<%= imageBaseUrl + movieData[i].poster_path %>" /></a>
-					</div>
-				<% } %>
+					<div class="sub-title">Tagline: </div>
+					<div><%= movieData.tagline %></div>
+
+					<div class="sub-title">Release Date: </div>
+					<div><%= movieData.release_date %></div>
+
+					<div class="sub-title">Runtime: </div>
+					<div><%= movieData.runtime %> minutes</div>
+
+					<div class="sub-title">Homepage: </div>
+					<div><a href="<%= movieData.homepage %>" target='_blank'><%= movieData.title%></a></div>
+
+					<div class="sub-title">IMDb: </div>
+					<div><a href="http://www.imdb.com/title/<%= movieData.imdb_id %>" target='_blank'>Link to IMDb</a></div>
+				</div>
 			</div>
 		</div>
 	</div>

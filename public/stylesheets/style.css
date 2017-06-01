@@ -1,13 +1,95 @@
-body {
-	padding: 50px;
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	font-size: 40px;
+*{
+	font-family: 'Raleway', sans-serif;
+	color: black;
 }
 
-a {
-	color: #00B7FF;
+body {
+	padding: 50px;
+	background-image: url("https://i.ytimg.com/vi/8KTfbWzCV-U/maxresdefault.jpg");
+    background-attachment: fixed;
 }
 
 img{
 	max-width: 100%;
+}
+
+.main-imgs{
+	max-width: 50%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.header-section{
+	background-color: white;
+	border: 10px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+
+h1{
+	font-family: 'Diplomata', cursive;
+	font-size: 40px;
+	color: #DAB806;
+}
+
+input{
+	height: 35px;
+	width: 450px;
+}
+
+.movie-card{
+	position: relative;
+	border: 2px solid black;
+	margin: 30px;
+	width: 500px;
+	height: 450px;
+	background-color: #f7e8a0;
+}
+
+.movie-card:hover{
+	background-color: lightgray;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DAB806;
+  border: 0px none white;
+  border-radius: 50px;
+}
+
+.movie-text{
+	position: absolute;
+	top: 80px;
+	left: 0px;
+	text-align: justify;
+	width: 240px;
+    height: 350px;
+	overflow: scroll;
+}
+
+.movie-data{
+	margin-top: 20px;
+	background-color: #f7e8a0;
+	border: 2px solid black;
+	padding: 20px;
+}
+
+.movie-poster{
+	border: 5px solid lightgray;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: white;
+}
+
+.sub-title{
+	font-weight: bolder;
+	font-size: 20px;
+	margin-top: 20px;
 }

@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 		res.render('movie_list', { 
 			movieData: movieData.results,
 			imageBaseUrl: imageBaseUrl,
-			titleHeader: "Welcome to my movie app. These are now playing..."
+			titleHeader: "Movie Database"
 		});
 	});
 });
@@ -43,7 +43,7 @@ router.post('/search', (req,res)=>{
 		res.render('movie_list', { 
 			movieData: movieData.results,
 			imageBaseUrl: imageBaseUrl,
-			titleHeader: `You searched for ${termUserSearchedFor}. The results are...`
+			titleHeader: `Search results for ${termUserSearchedFor}:`
 		});
 	});
 });
