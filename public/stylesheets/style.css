@@ -4,13 +4,19 @@
 }
 
 body {
-	padding: 50px;
 	background-image: url("https://i.ytimg.com/vi/8KTfbWzCV-U/maxresdefault.jpg");
     background-attachment: fixed;
 }
 
 img{
 	max-width: 100%;
+	max-height: 100%;
+}
+
+.navbar{
+	position: fixed;
+	z-index: 10;
+	width: 100%;
 }
 
 .main-imgs{
@@ -23,7 +29,7 @@ img{
 .header-section{
 	background-color: white;
 	border: 10px solid black;
-	margin-top: 20px;
+	margin-top: 50px;
 	margin-bottom: 20px;
 	border-radius: 10px;
 	padding-bottom: 20px;
