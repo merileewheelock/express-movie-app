@@ -99,3 +99,24 @@ input{
 	font-size: 20px;
 	margin-top: 20px;
 }
+
+.form-area{
+	margin-top: 80px;
+}
+
+.submit-btn{
+	margin-top: 20px;
+}
+
+.error{
+	transition: all 3s;
+	/* background-color: white; */
+}
+
+.error.animate{
+	background-color: red;
+}
+
+#login{
+	float: right;
+}
